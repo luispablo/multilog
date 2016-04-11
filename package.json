@@ -1,0 +1,34 @@
+{
+  "name": "@luispablo/multilog",
+  "version": "1.0.0",
+  "description": "Simple wrapper for multiple loggers. Initially graylog and console.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/tape/bin/tape test/*.js",
+    "lint": "eslint *.js lib/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luispablo/multilog.git"
+  },
+  "keywords": [
+    "logger",
+    "log",
+    "console",
+    "graylog",
+    "multilog"
+  ],
+  "author": "@luispablo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luispablo/multilog/issues"
+  },
+  "homepage": "https://github.com/luispablo/multilog#readme",
+  "devDependencies": {
+    "tape": "^4.5.1"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "gelf-pro": "^0.6.3"
+  }
+}
