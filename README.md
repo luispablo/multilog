@@ -19,9 +19,10 @@ For example, to get one console logger and one GrayLog logger use this:
 
 ```
 const properties = [
-	{name: 'console'},
+	{name: 'console', level: 'DEBUG'},
 	{
 		name: 'gelf',
+		level: 'WARN',
 		config: {
 			fields: {facility: "example", owner: "Tom (a cat)"}, // optional; default fields for all messages
 			filter: [], // optional; filters to discard a message
@@ -37,6 +38,13 @@ const properties = [
 	}
 ]
 ```
+
+### Logging levels
+
+So far, we have INFO, ERROR, WARN and DEBUG. And they work as you would expect
+them to.
+You must specify the level in **each** logger. In every single logger? YES, deal
+with it.
 
 Then, create a MultiLog object:
 
