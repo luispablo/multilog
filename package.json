@@ -1,10 +1,10 @@
 {
   "name": "@luispablo/multilog",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Simple wrapper for multiple loggers. Initially graylog and console.",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/tape/bin/tape test/*.js | faucet",
+    "test": "tape test/*.js | faucet",
     "lint": "eslint *.js lib/*.js"
   },
   "repository": {

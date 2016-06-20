@@ -1,8 +1,8 @@
-const Builder = require("./lib/Builder");
-const MultiLogger = require("./lib/MultiLogger");
+var Builder = require("./lib/Builder");
+var MultiLogger = require("./lib/MultiLogger");
 
 module.exports = function (properties) {
-	const loggers = properties.map(props => Builder(props));
+	var loggers = properties.map(function (props) { return Builder(props); });
 
 	return MultiLogger(loggers);
 };

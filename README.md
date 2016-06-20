@@ -2,7 +2,7 @@
 
 Simple wrapper for multiple loggers. Initially graylog and console.
 
-**If you like it, star; if you don't, please tell me why!! :)**
+**Good news! Now support for Node 0.10**
 
 ## Installation
 

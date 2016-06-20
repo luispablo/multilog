@@ -1,31 +1,31 @@
 "use strict";
 
-const test = require("tape");
-const GELFLogger = require("../lib/GELFLogger");
-const Level = require("../lib/Level");
+var test = require("tape");
+var GELFLogger = require("../lib/GELFLogger");
+var Level = require("../lib/Level");
 
-const MESSAGE = "test message";
+var MESSAGE = "test message";
 
-const gelflog = {
+var gelflog = {
 	lastMessage: "",
-	setConfig (config) { this.config = config; },
-	info (message) { this.lastMessage = message; },
-	error (error) { this.info(error); },
-	debug (message) { this.lastMessage = message; },
-	warn (message) { this.lastMessage = message; }
+	setConfig: function (config) { this.config = config; },
+	info: function (message) { this.lastMessage = message; },
+	error: function (error) { this.info(error); },
+	debug: function (message) { this.lastMessage = message; },
+	warn: function (message) { this.lastMessage = message; }
 };
-const config = {param: "value"};
-const level = Level();
-const log = GELFLogger(gelflog, config, level.DEBUG);
+var config = {param: "value"};
+var level = Level();
+var log = GELFLogger(gelflog, config, level.DEBUG);
 
-test("GELFLogger - tell its level", assert => {
+test("GELFLogger - tell its level", function (assert) {
 	assert.equal(log.level, level.DEBUG, "Its level is DEBUG");
 	assert.end();
 });
 
-test("GELFLogger - uses the level", assert => {
-	let levelLog = GELFLogger(gelflog, config, level.INFO);
-	const one = "1";
+test("GELFLogger - uses the level", function (assert) {
+	var levelLog = GELFLogger(gelflog, config, level.INFO);
+	var one = "1";
 	levelLog.debug(one);
 	assert.ok(gelflog.lastMessage.indexOf(one) < 0, "Hasn't logged debug");
 	levelLog = GELFLogger(gelflog, config, level.DEBUG);
@@ -34,32 +34,32 @@ test("GELFLogger - uses the level", assert => {
 	assert.end();
 });
 
-test("GELFLogger - config", assert => {
+test("GELFLogger - config", function (assert) {
 	assert.equal(gelflog.config, config, "Set the npm module gelf-pro config");
 	assert.end();
 });
 
-test("GELFLogger - debug works", assert => {
+test("GELFLogger - debug works", function (assert) {
 	log.debug(MESSAGE);
 	assert.equal(gelflog.lastMessage, MESSAGE, "Formatted debug message");
 	assert.end();
 });
 
-test("GELFLogger - warn works", assert => {
+test("GELFLogger - warn works", function (assert) {
 	log.warn(MESSAGE);
 	assert.equal(gelflog.lastMessage, MESSAGE, "Formatted warn message");
 	assert.end();
 });
 
-test("GELFLogger - info works", assert => {
+test("GELFLogger - info works", function (assert) {
 	log.info(MESSAGE);
 
 	assert.equal(gelflog.lastMessage, MESSAGE, "Formatted info message");
 	assert.end();
 });
 
-test("GELFLogger - error works", assert => {
-	const error = {code: 5, message: MESSAGE};
+test("GELFLogger - error works", function (assert) {
+	var error = {code: 5, message: MESSAGE};
 
 	log.error(error);
 
