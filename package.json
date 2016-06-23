@@ -1,5 +1,5 @@
 {
-  "name": "@luispablo/multilog",
+  "name": "luispablo-multilog",
   "version": "1.2.0",
   "description": "Simple wrapper for multiple loggers. Initially graylog and console.",
   "main": "index.js",
