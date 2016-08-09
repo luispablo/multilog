@@ -7,7 +7,7 @@ Simple wrapper for multiple loggers. Initially graylog and console.
 ## Installation
 
 ```
-npm install --save @luispablo/multilog
+npm install --save luispablo-multilog
 ```
 
 ## Usage
@@ -49,7 +49,7 @@ with it.
 Then, create a MultiLog object:
 
 ```
-const MultiLog = require("@luispablo/multilog");
+const MultiLog = require("luispablo-multilog");
 
 ...
 
