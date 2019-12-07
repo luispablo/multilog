@@ -15,7 +15,7 @@ be an array with objects, with each object being a logger configuration.
 
 For example, to get one console logger and one GrayLog logger use this:
 
-```json
+```javascript
 const properties = [
 	{name: 'console', level: 'DEBUG'},
 	{
