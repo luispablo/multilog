@@ -2,11 +2,9 @@
 
 Simple wrapper for multiple loggers. Initially graylog and console.
 
-**Good news! Now support for Node 0.10**
-
 ## Installation
 
-```
+```bash
 npm install --save luispablo-multilog
 ```
 
@@ -17,7 +15,7 @@ be an array with objects, with each object being a logger configuration.
 
 For example, to get one console logger and one GrayLog logger use this:
 
-```
+```json
 const properties = [
 	{name: 'console', level: 'DEBUG'},
 	{
@@ -41,27 +39,26 @@ const properties = [
 
 ### Logging levels
 
-So far, we have INFO, ERROR, WARN and DEBUG. And they work as you would expect
-them to.
-You must specify the level in **each** logger. In every single logger? YES, deal
-with it.
+So far, we have ```INFO```, ```ERROR```, ```WARN``` and ```DEBUG```. And they work as you would expect them to.
+You must specify the level in **each** logger.
 
 Then, create a MultiLog object:
 
-```
+```javascript
 const MultiLog = require("luispablo-multilog");
 
-...
+// ...
 
 const log = MultiLog(properties);
 ```
 
 and you're ready to go!
 
-```
+```javascript
 log.info("This is an info message");
 
-...
+// ...
+
 const error = {code: 5, message: "Error message"}; // This can be anything you want
 log.error(error);
 ```
