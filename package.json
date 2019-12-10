@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/luispablo/multilog#readme",
   "devDependencies": {
+    "eslint": "^6.7.2",
     "faucet": "0.0.1",
     "tape": "^4.5.1"
   },
