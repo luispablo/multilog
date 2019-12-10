@@ -50,8 +50,31 @@ test("ConsoleLogger - debug works", function (assert) {
 test("ConsoleLogger - error works", function (assert) {
   log.error({code: 5, message: MESSAGE});
 
-  var expectedMessage = "ERROR: {\"code\":5,\"message\":\""+ MESSAGE +"\"}";
+  const expectedMessage = `
+
+// --------## ERROR -------------------------------------------->
+
+${MESSAGE}
+
+{
+  "code": 5,
+  "message": "${MESSAGE}"
+}
+
+
+// -------------------------------------------------------------> 
+
+`;
 
   assert.equal(console.lastMessage, expectedMessage, "Formatted error level message");
+  assert.end();
+});
+
+test("ConsoleLogger - error with call stack", function (assert) {
+  log.error(new Error(MESSAGE));
+
+  assert.ok(console.lastMessage.indexOf("Error: test message") > 0, "Shows the error message");
+  assert.ok(console.lastMessage.indexOf("at Test.<anonymous> (") > 0, "Dumps call stack");
+  assert.ok(console.lastMessage.indexOf("multilog/test/ConsoleLogger-test.js:74:13") > 0, "More detail of the call stack");
   assert.end();
 });
